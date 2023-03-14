@@ -3,6 +3,7 @@
 , solc_sha256
 , stdenv
 , fetchurl
+, autoPatchelfHook
 }:
 
 let
@@ -30,6 +31,8 @@ let
       sha256 = solc_sha256.${solc-flavor};
     };
     dontUnpack = true;
+
+    nativeBuildInputs = [ autoPatchelfHook ];
 
     installPhase = ''
       runHook preInstall

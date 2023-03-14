@@ -1,7 +1,7 @@
 p : p.lib.foldr (a: b: let
   pname = "solc_" + (builtins.replaceStrings ["."] ["_"] a.version);
   in b // {
-  "${pname}" = p.callPackage (import ./solc-bin.nix) { solc_ver = a.version; solc_sha256 = a.sha256; };
+  "${pname}" = p.callPackage (import ./solc-static.nix) { solc_ver = a.version; solc_sha256 = a.sha256; };
   }) {} [
   { version = "0.8.1";  sha256 = { solc-static-linux = "sha256-2qf21swKMWvrJgdTMYO2SQR5hnewy5m9oFSepw6N5ho="; }; }
   { version = "0.8.2";  sha256 = { solc-static-linux = "sha256-trlCnXHUOVkBeVk2oKruCyMIL8ruENVj2HtC5pwOaMI="; }; }
