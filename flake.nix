@@ -40,6 +40,7 @@
     ];
   in {
     overlay = final: prev: solcs final;
+    packages = solcs pkgs;
     # latest solc compiler
     devShells.default = pkgs.mkShell {
       buildInputs = [ (pkgs.lib.lists.last (builtins.attrValues (solcs pkgs))) ];
