@@ -27,7 +27,7 @@ let
 
     src = fetchurl {
       url = "https://github.com/ethereum/solidity/releases/download/v${version}/${solc-flavor}";
-      sha256 = solc_sha256;
+      sha256 = solc_sha256.${solc-flavor};
     };
     dontUnpack = true;
 
