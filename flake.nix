@@ -8,7 +8,7 @@
 
   outputs = { self, nixpkgs, flake-utils }:
   let
-    solc-compilers = import ./solc-compilers.nix;
+    mk-solc-pkgs = import ./mk-solc-pkgs.nix;
   in flake-utils.lib.eachSystem [
     "x86_64-linux"
     "x86_64-darwin"
@@ -16,17 +16,18 @@
   ] (system:
     let
       pkgs = import nixpkgs { inherit system; };
-    in rec {
-      packages = solc-compilers pkgs;
-      # latest solc compiler
+      solcPkgs = mk-solc-pkgs pkgs;
+    in {
+      packages = solcPkgs;
+      # default shell with the latest solc compiler
       devShells.default = pkgs.mkShell {
-        buildInputs = [ packages.solc_0_8_19 ]; 
+        buildInputs = [ solcPkgs.solc_0_8_19 ];
       };
-      # all solc compilers
+      # shell with all solc compilers
       devShells.all = pkgs.mkShell {
-        buildInputs = builtins.attrValues packages;
+        buildInputs = builtins.attrValues solcPkgs;
       };
   }) // {
-    overlay = final: prev: solc-compilers prev;
+    overlay = final: prev: mk-solc-pkgs prev;
   };
 }
