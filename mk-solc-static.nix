@@ -14,6 +14,7 @@ let
     homepage = "https://github.com/ethereum/solidity";
     license = licenses.gpl3;
     maintainers = with maintainers; [ hellwolf ];
+    mainProgram = "solc-${solc_ver}";
   };
 
   inherit (stdenv.hostPlatform) system;
