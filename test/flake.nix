@@ -10,7 +10,12 @@
     };
   in {
     devShell.x86_64-linux = with pkgs; mkShell {
-      buildInputs = [ solc_0_4_26 solc_0_7_6 solc_0_8_19 ];
+      buildInputs = [
+        solc_0_4_26
+        solc_0_7_6
+        solc_0_8_19
+        (solc.mkDefault pkgs solc_0_8_19)
+      ];
     };
   };
 }

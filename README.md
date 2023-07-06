@@ -10,6 +10,8 @@ This Nix flake provides a collection of static-linux and macos builds of [solidi
 
 The following flake will make solc 0.4.26, 0.7.6 and 0.8.19 available for development.
 
+Additionally, a convenient function `mkDefault` is provided to create a symlink to a selected version of solc.
+
 ```nix
 {
   inputs = {
@@ -28,7 +30,12 @@ The following flake will make solc 0.4.26, 0.7.6 and 0.8.19 available for develo
     };
   in {
     devShell.x86_64-linux = with pkgs; mkShell {
-      buildInputs = [ solc_0_4_26 solc_0_7_6 solc_0_8_19 ];
+      buildInputs = [
+        solc_0_4_26
+        solc_0_7_6
+        solc_0_8_19
+        (solc.mkDefault pkgs solc_0_8_19)
+      ];
     };
   };
 }

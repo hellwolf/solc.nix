@@ -18,7 +18,9 @@
       pkgs = import nixpkgs { inherit system; };
       solcPkgs = mk-solc-pkgs pkgs;
     in {
+      # assorted solc packages
       packages = solcPkgs;
+
       # default shell with the latest solc compiler
       devShells.default = pkgs.mkShell {
         buildInputs = [ solcPkgs.solc_0_8_19 ];
@@ -28,6 +30,11 @@
         buildInputs = builtins.attrValues solcPkgs;
       };
   }) // {
+    # the overlay for nixpkgs
     overlay = final: prev: mk-solc-pkgs prev;
+
+    # make a package with the symlink 'solc' to the selected solc
+    mkDefault = pkgs : solc-selected: pkgs.runCommand "solc-default" {}
+      "mkdir -p $out/bin && ln -s ${pkgs.lib.getExe solc-selected} $out/bin/solc";
   };
 }
