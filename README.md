@@ -1,5 +1,5 @@
-Solidity Compilers Collections in Nix
-=====================================
+A Solidity Compilers Collection in Nix
+======================================
 
 This Nix flake provides a collection of static-linux and macos builds of [solidity compilers
 (solc)](https://github.com/ethereum/solidity/) as [an overlay](https://nixos.wiki/wiki/Overlays).
