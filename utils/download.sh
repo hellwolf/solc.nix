@@ -8,7 +8,7 @@ list_all_versions() {
     for i in $(seq  0 17); do echo 0.5."$i"; done
     for i in $(seq  0  9); do echo 0.6."$i"; done
     for i in $(seq  0  6); do echo 0.7."$i"; done
-    for i in $(seq  0 20); do echo 0.8."$i"; done
+    for i in $(seq  0 21); do echo 0.8."$i"; done
 }
 
 download_one_version() {
@@ -28,7 +28,9 @@ download_all_versions() {
     done
 }
 
-if [[ "$1" == all ]]; then
+if [[ "$1" == "" ]]; then
+    echo "Usage: $0 all | version"
+elif [[ "$1" == all ]]; then
     download_all_versions
 else
     download_one_version "$1"
