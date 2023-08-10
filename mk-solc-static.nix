@@ -33,7 +33,7 @@ let
     };
     dontUnpack = true;
 
-    nativeBuildInputs = [ autoPatchelfHook ];
+    nativeBuildInputs = lib.optionals (!stdenv.isDarwin) [ autoPatchelfHook ];
 
     installPhase = ''
       runHook preInstall
