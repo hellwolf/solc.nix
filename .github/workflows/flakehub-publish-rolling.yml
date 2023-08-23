@@ -13,6 +13,5 @@ jobs:
       - uses: "DeterminateSystems/nix-installer-action@main"
       - uses: "DeterminateSystems/flakehub-push@main"
         with:
-          # name: "hellwolf/solc"
-          visibility: "unlisted"
+          name: "hellwolf/solc"
           rolling: true
