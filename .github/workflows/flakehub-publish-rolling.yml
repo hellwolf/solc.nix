@@ -14,4 +14,5 @@ jobs:
       - uses: "DeterminateSystems/flakehub-push@main"
         with:
           name: "hellwolf/solc"
+          visibility: "public"
           rolling: true
