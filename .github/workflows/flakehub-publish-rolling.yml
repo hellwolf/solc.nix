@@ -13,5 +13,6 @@ jobs:
       - uses: "DeterminateSystems/nix-installer-action@main"
       - uses: "DeterminateSystems/flakehub-push@main"
         with:
+          name: "solc"
           visibility: "public"
           rolling: true
