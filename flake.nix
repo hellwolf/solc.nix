@@ -1,5 +1,5 @@
 {
-  description = "Providing asorted versions of solidity compilers (solc)";
+  description = "Providing assorted versions of solidity compilers (solc)";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
