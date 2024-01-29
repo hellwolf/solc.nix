@@ -13,13 +13,22 @@ list_all_versions() {
 
 download_one_version() {
     v=$1
+    # first download official binaries
     for j in static-linux macos; do
+        mkdir -p "$T/bin/$j"
         u=https://github.com/ethereum/solidity/releases/download/v$v/solc-$j
         o=$T/bin/$j/solc-$v
         # use -Nc for timestamping check and avoid redownloading
         # not all versions contain a macos binary, rm failed download
         wget -Nc "$u" -O "$o" || rm -f "$o";
     done
+    # second try download alloy macos binaries
+    mkdir -p "$T/bin/macos-aarch"
+    u=https://github.com/alloy-rs/solc-builds/raw/e4b80d33bc4d015b2fc3583e217fbf248b2014e1/macosx/aarch64/solc-v$v
+    o=$T/bin/macos-aarch/solc-$v
+    # use -Nc for timestamping check and avoid redownloading
+    # not all versions contain a macos binary, rm failed download
+    wget -Nc "$u" -O "$o" || rm -f "$o";
 }
 
 download_all_versions() {
