@@ -256,6 +256,30 @@
   };
 }
 {
+  version = "0.6.12";
+  sha256 = {
+    solc-static-linux = "sha256-9stRmwHavGHKtMGEo9sRqlkdGBUeNi/K6FDkLP/fsJo=";
+    solc-macos = "sha256-Ba2K+oPfO1HTb+moTqRGez7RdYXJA5RphdbizV6VaFo=";
+    # solc-macos-aarch not available for this version
+  };
+}
+{
+  version = "0.6.11";
+  sha256 = {
+    solc-static-linux = "sha256-LgkdXxO+oLxEXH9nTVz4yeQqPU414eUPAPTdRImFBao=";
+    solc-macos = "sha256-oKZKoJKmFq5xRdqQj8Qn/DwpbTr9v6jqNGiiJyLV0Bw=";
+    # solc-macos-aarch not available for this version
+  };
+}
+{
+  version = "0.6.10";
+  sha256 = {
+    solc-static-linux = "sha256-aMQUungyVXCjSBeoKbHzxioYmFcIolCXKbUPeYKaN0s=";
+    solc-macos = "sha256-N3PmbD7xTi5HvdfQbzD5UsGZhW3yQNFkyRwfAIBvu8c=";
+    # solc-macos-aarch not available for this version
+  };
+}
+{
   version = "0.6.9";
   sha256 = {
     solc-static-linux = "sha256-60K+9XhKDewPG1TCYLN23rBJWUC/1HTES1vjHAtjRgM=";
