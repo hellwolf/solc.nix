@@ -26,6 +26,7 @@ print_hash() {
   sha256 = {
     $(print_hash solc-static-linux "$c"/static-linux/"$s")
     $(print_hash solc-macos        "$c"/macos/"$s")
+    $(print_hash solc-macos-aarch  "$c"/macos-aarch/"$s")
   };
 }
 EOF

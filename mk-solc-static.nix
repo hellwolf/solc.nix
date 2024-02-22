@@ -18,17 +18,33 @@ let
   };
 
   inherit (stdenv.hostPlatform) system;
-  solc-flavor = {
+  solc-flavor-base = {
     x86_64-linux = "solc-static-linux";
     x86_64-darwin = "solc-macos";
-    aarch64-darwin = "solc-macos";
+    aarch64-darwin = "solc-macos-aarch";
   }.${system} or (throw "Unsupported system: ${system}");
+
+  # Fix solc flavor for macos for newer versions.
+  solc-flavor =
+    if solc-flavor-base == "solc-macos-aarch" && builtins.compareVersions solc_ver "0.8.24" > -1
+    then "solc-macos"
+    else solc-flavor-base;
+
+  # The official solc binaries for macOS started supporting Apple Silicon with
+  # v0.8.24. For earlier versions, the binaries from svm can be used.
+  # See https://github.com/alloy-rs/solc-builds
+  url =
+    if solc-flavor == "solc-macos" || solc-flavor == "solc-static-linux" then
+      "https://github.com/ethereum/solidity/releases/download/v${version}/${solc-flavor}"
+    else if builtins.compareVersions solc_ver "0.8.5" > -1 then
+      "https://github.com/alloy-rs/solc-builds/raw/e4b80d33bc4d015b2fc3583e217fbf248b2014e1/macosx/aarch64/solc-v${version}"
+    else throw "Unsupported version ${version} for ${system}";
 
   solc = stdenv.mkDerivation rec {
     inherit pname version meta;
 
     src = fetchurl {
-      url = "https://github.com/ethereum/solidity/releases/download/v${version}/${solc-flavor}";
+      inherit url;
       sha256 = solc_sha256.${solc-flavor};
     };
     dontUnpack = true;
@@ -46,4 +62,4 @@ let
     '';
   };
 in
-  solc
+solc
