@@ -4,11 +4,17 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+
+    solc-macos-amd64 = {
+      url = "https://binaries.soliditylang.org/macosx-amd64/list.json";
+      flake = false;
+    };
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
+  outputs = { self, nixpkgs, flake-utils, solc-macos-amd64 }:
   let
-    mk-solc-pkgs = import ./mk-solc-pkgs.nix;
+    solc-macos-amd64' = (builtins.fromJSON (builtins.readFile solc-macos-amd64));
+    mk-solc-pkgs = import ./mk-solc-pkgs.nix solc-macos-amd64';
   in flake-utils.lib.eachSystem [
     "x86_64-linux"
     "x86_64-darwin"

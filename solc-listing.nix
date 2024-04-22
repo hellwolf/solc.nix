@@ -299,7 +299,7 @@
   version = "0.6.8";
   sha256 = {
     solc-static-linux = "sha256-n3YWfHhjXNBIyjDnXZ2t5X6m8NA7gzhNZA1do46MWA0=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-gB76o9AohjcCFmfA0RbuKzOeYs8mAn+MFoJZ4IBei2A=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -307,7 +307,7 @@
   version = "0.6.7";
   sha256 = {
     solc-static-linux = "sha256-ICY6oXwufKjBDs09QkLfYdudVJvB3bcrmjh8DBE2wc8=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-u3i23j3322EVoQMzRsPp34prnE/QOMwS1r3xar0pyVI=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -315,7 +315,7 @@
   version = "0.6.6";
   sha256 = {
     solc-static-linux = "sha256-XYzU4MwC6ZRkl9towG1WMmp4/5WiHJJlz+24GaEKU50=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-Rcf5Vhl84Itp95PqYQzx7mXhK2pRjWFgzCjI7v9BUXw=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -323,7 +323,7 @@
   version = "0.6.5";
   sha256 = {
     solc-static-linux = "sha256-Mydq3/jw5iCt9xxKtm10jQaQw0Ngzk9V4NGMd/oTR20=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-qBKSVLUke74APW5U81wLuoU2lBJnRFdyiba98dNaHko=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -331,7 +331,7 @@
   version = "0.6.4";
   sha256 = {
     solc-static-linux = "sha256-lt3YHqfZTW5/ETX3sRqx0GNa1Vhe2UFH8f45satyZvs=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-CC/ULMlsKCYkWTBvKFT+cEnMDRRHPhJrLbbTC/AvVNA=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -339,7 +339,7 @@
   version = "0.6.3";
   sha256 = {
     solc-static-linux = "sha256-YB+HTipSx1ndzBB0y3XBKEjizomah0akPir/vSimVeE=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-oJNQ1aGCs9p5nCA9Ha3Ezg5v47ltye4cnXPpqdlZLio=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -347,7 +347,7 @@
   version = "0.6.2";
   sha256 = {
     solc-static-linux = "sha256-EJyoxrkvRUjnjHKmTEfGFGF9eyteS2+Lnn1lT8UYY2U=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-K7GdjNaaMoVKzOEkW0SSz8W151HTItLGVW1KUhv8w8g=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -355,7 +355,7 @@
   version = "0.6.1";
   sha256 = {
     solc-static-linux = "sha256-SZwqrRMv/felnOh9iOT+zizNY/Wrfig7G+THIrBiBss=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-8WSb/bDm5TvidYVEg2JYy00C4LOBqeQyFqorL60Mm44=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -363,7 +363,7 @@
   version = "0.6.0";
   sha256 = {
     solc-static-linux = "sha256-XEsw2hiw+l8a4xgxJ6Tc1konn8wV4WpHewhB1XZ3AoM=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-N77tjIuUfrpkTP2MIERuG6XXQFXmhWtkbdatS7Rw2a4=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -371,7 +371,7 @@
   version = "0.5.17";
   sha256 = {
     solc-static-linux = "sha256-w1znpNP/pXR8F4seJMhUGy5dioLB2zcZ60QzofGeFvM=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-Nb4o9oSItx8d5mFI+RW5HWTgYpAOT8F1vy64+5SIEL0=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -379,7 +379,7 @@
   version = "0.5.16";
   sha256 = {
     solc-static-linux = "sha256-oV8BcA7H4C+Ru9/Utv9EULPC3srhc+T0GRCjz7r109M=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-n2Yk5AhJcUK70p7+B0TuJeRFrrfJMr5AHAvDBHimu3U=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -387,7 +387,7 @@
   version = "0.5.15";
   sha256 = {
     solc-static-linux = "sha256-vIFvIQTQ4xYXm85pr88kpItcbHIDy3K+ytfZ57ZpkLQ=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-ngUFHD1CpJyEcMvtHyv6if526TCp5VWMUs5WU895TiU=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -395,7 +395,7 @@
   version = "0.5.14";
   sha256 = {
     solc-static-linux = "sha256-SEVOKQ7/0bmyqoYAE97/CaebTXRyh1oH8+fVR98pfsw=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-ivqSa2u4rUkvslB4sdzgn9Bfqldl5OKyZys8mc9x7rE=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -403,7 +403,7 @@
   version = "0.5.13";
   sha256 = {
     solc-static-linux = "sha256-W2IQXonCKfWVHQXysZr4EWNZnH8N7MBK+B4lOZY2aq8=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-aKNE2d5AsNdIIInud0jkMIjFLjsQhIDYAbNMZAIL60g=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -411,7 +411,7 @@
   version = "0.5.12";
   sha256 = {
     solc-static-linux = "sha256-cLbwo1U4XFrqJsdhsuWLMhaqVk9B5OFWgTvjxHpmrpw=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-PfuXvJQUkq+up/QEw/ucb+IVszhqpuA3B5G1ceRnlUg=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -419,7 +419,7 @@
   version = "0.5.11";
   sha256 = {
     solc-static-linux = "sha256-NQ1avFhi3KQykkJrbU5ZL4H0CwLNqDPzhAa6AEe2udA=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-Do7ondsQlrgcNOEb21mFgi50nTqdxOchi6JHSvpkAMs=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -427,7 +427,7 @@
   version = "0.5.10";
   sha256 = {
     solc-static-linux = "sha256-PJsujrmNQpT8RTJtr8vMtGpwmTw0bH07VaoCkrPKAzQ=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-UIK7XEkso1tosMPiTVk0tW063YPxQAupVlTo8WPHQf8=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -435,7 +435,7 @@
   version = "0.5.9";
   sha256 = {
     solc-static-linux = "sha256-OQ0UrEe0oB5PgEpXFZ/6UmwjKaDrCLniDe4AZJ77NGE=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-kuNoggfAwrhr2dEAiDQOSlheKeOojRz3nCBD9PnxIcQ=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -443,7 +443,7 @@
   version = "0.5.8";
   sha256 = {
     solc-static-linux = "sha256-WPvpu7cJJ3lX/RK5IlMPA89VjPgDtyMzotdtVHV4hdE=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-nzg4lshQbNlqxe+cl9erHDhftfR3Kl89LPhxXK55NVQ=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -451,7 +451,7 @@
   version = "0.5.7";
   sha256 = {
     solc-static-linux = "sha256-gQxSz/KVEflcRPmhrisRwEWY1BPW/6N72xlBWSb7Wzc=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-p9a448si2QeJp5tIS3If4ClD+J6bfploY+3S1AuntSQ=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -459,7 +459,7 @@
   version = "0.5.6";
   sha256 = {
     solc-static-linux = "sha256-88cKTXFre06BHvUgSzrmoWSXrnAaK4YmDRve5+RIS1M=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-Qo+cCHPYh0AkL2/Bajrm+Rs19z3fdna11bOWh9nZt9w=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -467,7 +467,7 @@
   version = "0.5.5";
   sha256 = {
     solc-static-linux = "sha256-cYx8xYGKkXnTYMpUIsnxOjEqK6+IhPPdi74yh+yu8MY=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-f8BgDMFQAgQCyVOewK1YTrknGy0OC/+eO01MpnK+NFI=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -475,7 +475,7 @@
   version = "0.5.4";
   sha256 = {
     solc-static-linux = "sha256-D940fbXmMvw67zyo2nSJbY33o1KHZG5/ve6Cn+I2BUo=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-Mqiv+pltBcVSVzF8xwC55bQ3fZSRm1kFVWTrC1+UF3M=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -483,7 +483,7 @@
   version = "0.5.3";
   sha256 = {
     solc-static-linux = "sha256-vgjrlcs6HaUukYz1GgwDl/vn8GkxResxg1vykkIJ8eA=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-A6bPotdOV+o47ug86aPqN6blCSjX8QnnSzfK4xMZrys=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -491,7 +491,7 @@
   version = "0.5.2";
   sha256 = {
     solc-static-linux = "sha256-hxRqeyhLHJBnqRWTDAxq98mf+d0YB+NoA2f8A6Weg78=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-nn7lTwvCl4+oc4uWA9Y2cVoGnYR3F3jWGVV3u5Hsucg=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -499,7 +499,7 @@
   version = "0.5.1";
   sha256 = {
     solc-static-linux = "sha256-YnXUgfIxgOALOJloSFNNt4tPc8qsoVQ1rYYd9UW7cdA=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-8rrUM4YGVoS04VuGoXVBD10eTSNLBSy6ROtQ9MdLAh8=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -507,7 +507,7 @@
   version = "0.5.0";
   sha256 = {
     solc-static-linux = "sha256-wbsVtSD1B2rr16qe9M5fokW28hCpHL0gZLnjg+ZRDgg=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-n6Zj/EJ+jpYTgVrWuDeDtOTLEEOfFsoNyxL8ACxFq1o=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -515,7 +515,7 @@
   version = "0.4.26";
   sha256 = {
     solc-static-linux = "sha256-n52loS/KJ411Fl9Mp17p0pDZ8L2Mq9WfFr85zwrGIZI=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-vJVmRbeS3LuPgguAEKjU7B4Yj3tAxq+VGkNtpME65nc=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -523,7 +523,7 @@
   version = "0.4.25";
   sha256 = {
     solc-static-linux = "sha256-ybJodQUGuI/nE3EQAFDp3R5+3Pj2naNNHNCVV+yyRYA=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-nddoaXUgC+cc5zHxU4I+fqDWgQbzNU6hb+zVl19cmLc=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -531,7 +531,7 @@
   version = "0.4.24";
   sha256 = {
     solc-static-linux = "sha256-ZlZ1ueBDHCVy1Z1qcRKvvcdScy6gzprs8aGFXyjgKgk=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-cDTEBIvHE9XBTN1mgZU8c24q29uRdPi/v7aglxCf+qo=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -539,7 +539,7 @@
   version = "0.4.23";
   sha256 = {
     solc-static-linux = "sha256-xkjSmb0h9MdM4XlUcGz8Wnqfu9Hoc5VG7YdUys2Mp8I=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-UC7dsXf5Jo15seBeas+y8ilHGCO/ZxHv9BHSoj6MwLE=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -547,7 +547,7 @@
   version = "0.4.22";
   sha256 = {
     solc-static-linux = "sha256-+t6bpt1In/w/c+U6E9XxAxMld5cI5EgiSXCXm4zIa6c=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-qTQa3XpPAcUtuza7QCgQRnbGhLC2ADos2d2EoqmAK1k=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -555,7 +555,7 @@
   version = "0.4.21";
   sha256 = {
     solc-static-linux = "sha256-kFIoUFQgzTHmOT4J6mhbh1hbYsQznTrdwKMEm+u8QzI=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-4DXLmoG14+Eae5nq1vUaPvdyl5TuvuRwqWTiwI4wuFc=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -563,7 +563,7 @@
   version = "0.4.20";
   sha256 = {
     solc-static-linux = "sha256-2Wa4IVpPgzd86dYiyRmP6R5bkzAGUr8IGq8vaqOsahY=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-R0JeM4uUYdPmSYoLDVwrnMfPmY5KppEm6p9kwKF25gU=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -571,7 +571,7 @@
   version = "0.4.19";
   sha256 = {
     solc-static-linux = "sha256-B/iXU83aKAVLtvFZohkRcWyutDs8dlmiXx8tndF7yCc=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-rOUQemj6dWNOJoSNbSCLgIp2zE+SYuU+ijYivO/U3K8=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -579,15 +579,15 @@
   version = "0.4.18";
   sha256 = {
     solc-static-linux = "sha256-iYpeBdOsCNcmsBnSQVwcCHqa6HhmzfpVHAiza2tFMh0=";
-    # solc-macos not available for this version
-    solc-macos-aarch = "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=";
+    solc-macos = "sha256-3dyGaD0S0PAWtdV5nthPbyp59mfruTK5qOa/6aSMMZA=";
+    # solc-macos-aarch not available for this version
   };
 }
 {
   version = "0.4.17";
   sha256 = {
     solc-static-linux = "sha256-E0FL+G+AMZ5vWGO0ykr3hpVtGI9fm5ndpkOTYsbZERU=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-RYw+LeL/5gm3nZzcTrMIDW7XZi7xvdfIoD+xjxypoTc=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -595,7 +595,7 @@
   version = "0.4.16";
   sha256 = {
     solc-static-linux = "sha256-eODabK0kqxRajRdCDE8JTIMUQYyiPP9LBQuyv9NvOvI=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-okUSruFmUsRGmXlxW73KpsSvq7lLcXu0CYDkstJcRwk=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -603,7 +603,7 @@
   version = "0.4.15";
   sha256 = {
     solc-static-linux = "sha256-xxrGwovzsaQl536X9d9nqA2j5MBHJhh1IGVhwKEQwMs=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-5EmkmA20/xjn/+cEtACDze2WzM8zmGv2prtv6SXrhsA=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -611,7 +611,7 @@
   version = "0.4.14";
   sha256 = {
     solc-static-linux = "sha256-KM41oJQdns1ZorGjd8AZEQ55prOL2/Wjv/6oEfnCoTs=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-pO8i2dNudRUb3WRyDmnt31dQCIPdYjxXgF7bXMtkSok=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -619,7 +619,7 @@
   version = "0.4.13";
   sha256 = {
     solc-static-linux = "sha256-eR7jogrfbFq3bMiJ8TzKEC926wt88NpKC1sR3Ebt80k=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-cB7r8ON9Fyy4KdweZcdKRrO5ZzfzhmdY+YlGlqY5trc=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -627,7 +627,7 @@
   version = "0.4.12";
   sha256 = {
     solc-static-linux = "sha256-IhrjPhK9pci3lsmrrisutz5G2bEhKL/uRRsShW+LR+4=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-ZcySyRjWM09TOnWW9ikWgl/HIrKnojVynth8++xiK80=";
     # solc-macos-aarch not available for this version
   };
 }
@@ -635,7 +635,7 @@
   version = "0.4.11";
   sha256 = {
     solc-static-linux = "sha256-Co0TjuJFA55vgxLtwCS6PEc5zDwBO0fcf8kZai4yf+o=";
-    # solc-macos not available for this version
+    solc-macos = "sha256-KH6rAYfdS97FAibzFzUmvY0ket7r32S8C3RIcRq76mE=";
     # solc-macos-aarch not available for this version
   };
 }

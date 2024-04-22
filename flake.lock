@@ -37,7 +37,20 @@
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "solc-macos-amd64": "solc-macos-amd64"
+      }
+    },
+    "solc-macos-amd64": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-akcOahJE/QR0jCPvo4aBf0loJt9P8zvP2E7oCBCRIho=",
+        "type": "file",
+        "url": "https://binaries.soliditylang.org/macosx-amd64/list.json"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://binaries.soliditylang.org/macosx-amd64/list.json"
       }
     },
     "systems": {
