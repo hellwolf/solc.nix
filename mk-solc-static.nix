@@ -21,8 +21,8 @@ let
   inherit (stdenv.hostPlatform) system;
   solc-flavor-base = {
     x86_64-linux = "solc-static-linux";
-    x86_64-darwin = "solc-macos";
-    aarch64-darwin = "solc-macos-aarch";
+    x86_64-darwin = "solc-macos-amd64";
+    aarch64-darwin = "solc-macos-aarch64";
   }.${system} or (throw "Unsupported system: ${system}");
 
   # Fix solc flavor for macos for newer versions.
@@ -37,10 +37,10 @@ let
   url =
     if solc-flavor == "solc-static-linux" then
       "https://github.com/ethereum/solidity/releases/download/v${version}/${solc-flavor}"
-    else if solc-flavor == "solc-macos" then
+    else if solc-flavor == "solc-macos-amd64" then
       "https://binaries.soliditylang.org/macosx-amd64/${solc-macos-amd64-list.releases.${version}}"
-    else if builtins.compareVersions solc_ver "0.8.5" > -1 then
-      "https://github.com/alloy-rs/solc-builds/raw/e4b80d33bc4d015b2fc3583e217fbf248b2014e1/macosx/aarch64/solc-v${version}"
+    else if solc-flavor == "solc-macos-aarch64" && builtins.compareVersions solc_ver "0.8.5" > -1 then
+      "https://github.com/alloy-rs/solc-builds/raw/master/macosx/aarch64/solc-v${version}"
     else throw "Unsupported version ${version} for ${system}";
 
   solc = stdenv.mkDerivation rec {
