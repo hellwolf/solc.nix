@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+macos_versions=$(mktemp)
+curl https://binaries.soliditylang.org/macosx-amd64/list.json >"$macos_versions"
+
 T=$(dirname "$0")/..
 [[ -e "$T/bin" ]] || { echo "Symlink or create a top-level bin folder" && exit 1; }
 
@@ -13,15 +16,21 @@ list_all_versions() {
 
 download_one_version() {
     v=$1
-    # first download official binaries
-    for j in static-linux macos; do
-        mkdir -p "$T/bin/$j"
-        u=https://github.com/ethereum/solidity/releases/download/v$v/solc-$j
-        o=$T/bin/$j/solc-$v
-        # use -Nc for timestamping check and avoid redownloading
-        # not all versions contain a macos binary, rm failed download
-        wget -Nc "$u" -O "$o" || rm -f "$o";
-    done
+
+    mkdir -p "$T/bin/static-linux"
+    u=https://github.com/ethereum/solidity/releases/download/v$v/solc-static-linux
+    o=$T/bin/static-linux/solc-$v
+    # use -Nc for timestamping check and avoid redownloading
+    # not all versions contain a macos binary, rm failed download
+    wget -Nc "$u" -O "$o" || rm -f "$o";
+
+    mkdir -p "$T/bin/macos"
+    u=https://binaries.soliditylang.org/macosx-amd64/$(jq -r ".releases.\"$1\"" "$macos_versions")
+    o=$T/bin/macos/solc-$v
+    # use -Nc for timestamping check and avoid redownloading
+    # not all versions contain a macos binary, rm failed download
+    wget -Nc "$u" -O "$o" || rm -f "$o";
+
     # second try download alloy macos binaries
     mkdir -p "$T/bin/macos-aarch"
     u=https://github.com/alloy-rs/solc-builds/raw/e4b80d33bc4d015b2fc3583e217fbf248b2014e1/macosx/aarch64/solc-v$v

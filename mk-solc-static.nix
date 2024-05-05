@@ -4,6 +4,7 @@
 , stdenv
 , fetchurl
 , autoPatchelfHook
+, solc-macos-amd64
 }:
 
 let
@@ -34,8 +35,10 @@ let
   # v0.8.24. For earlier versions, the binaries from svm can be used.
   # See https://github.com/alloy-rs/solc-builds
   url =
-    if solc-flavor == "solc-macos" || solc-flavor == "solc-static-linux" then
+    if solc-flavor == "solc-static-linux" then
       "https://github.com/ethereum/solidity/releases/download/v${version}/${solc-flavor}"
+    else if solc-flavor == "solc-macos" then
+      "https://binaries.soliditylang.org/macosx-amd64/${solc-macos-amd64.releases.${version}}"
     else if builtins.compareVersions solc_ver "0.8.5" > -1 then
       "https://github.com/alloy-rs/solc-builds/raw/e4b80d33bc4d015b2fc3583e217fbf248b2014e1/macosx/aarch64/solc-v${version}"
     else throw "Unsupported version ${version} for ${system}";
