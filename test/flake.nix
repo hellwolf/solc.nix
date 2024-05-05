@@ -13,8 +13,13 @@
       buildInputs = [
         solc_0_4_26
         solc_0_7_6
-        solc_0_8_19
+        solc_0_8_25
         (solc.mkDefault pkgs solc_0_8_19)
+      ];
+    };
+    devShell.x86_64-darwin = with pkgs; mkShell {
+      buildInputs = [
+        solc_0_8_25
       ];
     };
   };
