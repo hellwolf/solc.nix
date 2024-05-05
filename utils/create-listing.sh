@@ -24,9 +24,9 @@ print_hash() {
 {
   version = "${s#solc-}";
   sha256 = {
-    $(print_hash solc-static-linux "$c"/static-linux/"$s")
-    $(print_hash solc-macos        "$c"/macos/"$s")
-    $(print_hash solc-macos-aarch  "$c"/macos-aarch/"$s")
+    $(print_hash solc-static-linux  "$c"/static-linux/"$s")
+    $(print_hash solc-macos-amd64   "$c"/macos-amd64/"$s")
+    $(print_hash solc-macos-aarch64 "$c"/macos-aarch64/"$s")
   };
 }
 EOF

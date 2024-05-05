@@ -57,17 +57,30 @@
     "solc": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_2",
+        "solc-macos-amd64-list-json": "solc-macos-amd64-list-json"
       },
       "locked": {
         "lastModified": 0,
-        "narHash": "sha256-UZJR4WiE3V3JjxbnFSaaPivCFqZnq0Yp18sELY1cELc=",
-        "path": "/nix/store/i75jbw2m9i3l2qhsbyvmpn206xjcnh2y-source",
+        "narHash": "sha256-6JU1+o4Xg6w9fMRXhgqSYGXw+Zi3Nt+SsmSaiuO/eC8=",
+        "path": "/nix/store/sjr093mly7bm1zhkvk2jkxx915302kk0-source",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/i75jbw2m9i3l2qhsbyvmpn206xjcnh2y-source",
+        "path": "/nix/store/sjr093mly7bm1zhkvk2jkxx915302kk0-source",
         "type": "path"
+      }
+    },
+    "solc-macos-amd64-list-json": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-akcOahJE/QR0jCPvo4aBf0loJt9P8zvP2E7oCBCRIho=",
+        "type": "file",
+        "url": "https://binaries.soliditylang.org/macosx-amd64/list.json"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://binaries.soliditylang.org/macosx-amd64/list.json"
       }
     },
     "systems": {
