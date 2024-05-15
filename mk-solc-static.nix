@@ -1,12 +1,12 @@
-{ lib
-, solc_ver
-, solc_sha256
-, stdenv
-, fetchurl
-, autoPatchelfHook
-, solc-macos-amd64-list
+{
+  lib,
+  stdenv,
+  fetchurl,
+  autoPatchelfHook,
+  solc_ver,
+  solc_sha256,
+  solc-macos-amd64-list,
 }:
-
 let
   pname = "solc-static";
   version = solc_ver;
@@ -19,17 +19,20 @@ let
   };
 
   inherit (stdenv.hostPlatform) system;
-  solc-flavor-base = {
-    x86_64-linux = "solc-static-linux";
-    x86_64-darwin = "solc-macos-amd64";
-    aarch64-darwin = "solc-macos-aarch64";
-  }.${system} or (throw "Unsupported system: ${system}");
+  solc-flavor-base =
+    {
+      x86_64-linux = "solc-static-linux";
+      x86_64-darwin = "solc-macos-amd64";
+      aarch64-darwin = "solc-macos-aarch64";
+    }
+    .${system} or ("Unsupported system: ${system}");
 
   # Fix solc flavor for macos for newer versions.
   solc-flavor =
-    if solc-flavor-base == "solc-macos-aarch" && builtins.compareVersions solc_ver "0.8.24" > -1
-    then "solc-macos"
-    else solc-flavor-base;
+    if solc-flavor-base == "solc-macos-aarch" && builtins.compareVersions solc_ver "0.8.24" > -1 then
+      "solc-macos"
+    else
+      solc-flavor-base;
 
   # The official solc binaries for macOS started supporting Apple Silicon with
   # v0.8.24. For earlier versions, the binaries from svm can be used.
@@ -41,28 +44,33 @@ let
       "https://binaries.soliditylang.org/macosx-amd64/${solc-macos-amd64-list.releases.${version}}"
     else if solc-flavor == "solc-macos-aarch64" && builtins.compareVersions solc_ver "0.8.5" > -1 then
       "https://github.com/alloy-rs/solc-builds/raw/master/macosx/aarch64/solc-v${version}"
-    else throw "Unsupported version ${version} for ${system}";
+    else
+      "Unsupported version ${version} for ${system}";
 
-  solc = stdenv.mkDerivation rec {
-    inherit pname version meta;
+  solc =
+    if (builtins.hasAttr solc-flavor solc_sha256) then
+      (stdenv.mkDerivation rec {
+        inherit pname version meta;
 
-    src = fetchurl {
-      inherit url;
-      sha256 = solc_sha256.${solc-flavor};
-    };
-    dontUnpack = true;
+        src = fetchurl {
+          inherit url;
+          sha256 = solc_sha256.${solc-flavor};
+        };
+        dontUnpack = true;
 
-    nativeBuildInputs = lib.optionals (!stdenv.isDarwin) [ autoPatchelfHook ];
+        nativeBuildInputs = lib.optionals (!stdenv.isDarwin) [ autoPatchelfHook ];
 
-    installPhase = ''
-      runHook preInstall
+        installPhase = ''
+          runHook preInstall
 
-      mkdir -p $out/bin
-      cp ${src} $out/bin/solc-${version}
-      chmod +x $out/bin/solc-${version}
+          mkdir -p $out/bin
+          cp ${src} $out/bin/solc-${version}
+          chmod +x $out/bin/solc-${version}
 
-      runHook postInstall
-    '';
-  };
+          runHook postInstall
+        '';
+      })
+    else
+      null;
 in
 solc

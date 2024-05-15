@@ -8,8 +8,11 @@ jobs:
       id-token: "write"
       contents: "read"
     steps:
-      - uses: "actions/checkout@v3"
+      - uses: "actions/checkout@v4"
       - uses: "DeterminateSystems/nix-installer-action@main"
+      - uses: "DeterminateSystems/magic-nix-cache-action@v6"
+      - run: |
+          nix flake check --print-build-logs --show-trace --no-build --debug --verbose --all-systems 
       - uses: "DeterminateSystems/flakehub-push@main"
         with:
           name: "hellwolf/solc"

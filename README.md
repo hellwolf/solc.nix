@@ -43,7 +43,7 @@ Additionally, a convenient function `mkDefault` is provided to create a symlink 
 
 For example, they should be available through the development shell.
 
-```
+```shell
 $ nix develop .
 
 $ solc-0.4.26 --version
@@ -63,8 +63,18 @@ Version: 0.8.19+commit.7dd6d404.Linux.g++
 
 You can also use `nix shell` directly without having to write a nix flake for a project.
 
-```
+```shell
 nix shell github:hellwolf/solc.nix#solc_0_4_26 github:hellwolf/solc.nix#solc_0_8_19
+```
+
+
+**Using non hermetic build of `solc`**
+
+Allow to build `solc` using native pipeline which does hashed fetches from http:
+
+
+```shell
+nix build .#solidity-develop --option "sandbox false"
 ```
 
 # Contribute
