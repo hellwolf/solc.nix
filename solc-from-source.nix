@@ -63,6 +63,7 @@ let
       lionello
       sifmelcara
     ];
+    mainProgram = "solc-${solc_ver}";
   };
 
   solc = gccStdenv.mkDerivation rec {
