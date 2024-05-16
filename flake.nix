@@ -59,7 +59,8 @@
               ;
           };
           default =
-            if (builtins.hasAttr "solc_0_8_23" solcPkgs) then solcPkgs.solc_0_8_23 else source-solc-0_8_23;
+            source-solc-0_8_23;
+            # if (builtins.hasAttr "solc_0_8_23" solcPkgs) then solcPkgs.solc_0_8_23 else source-solc-0_8_23;
         in
         {
           # assorted solc packages
