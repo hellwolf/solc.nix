@@ -67,16 +67,6 @@ You can also use `nix shell` directly without having to write a nix flake for a 
 nix shell github:hellwolf/solc.nix#solc_0_4_26 github:hellwolf/solc.nix#solc_0_8_19
 ```
 
-
-**Using non hermetic build of `solc`**
-
-Allow to build `solc` using native pipeline which does hashed fetches from http:
-
-
-```shell
-nix build .#solidity-develop --option "sandbox false"
-```
-
 # Contribute
 
 The author will make his best effort of keeping this repo up to date.
