@@ -20,7 +20,7 @@
     }:
     let
       solc-macos-amd64-list = builtins.fromJSON (builtins.readFile solc-macos-amd64-list-json);
-      mk-solc-pkgs =
+      mk-static-solc-pkgs =
         {
           lib,
           stdenv,
@@ -36,6 +36,24 @@
             autoPatchelfHook
             ;
         };
+      mk-source-solc-0_8_23 = callPackage: callPackage ./solc-from-source.nix { };
+
+      mk-solc-pkgs =
+        pkgs:
+        let
+          solcPkgsBinaries = mk-static-solc-pkgs {
+            inherit (pkgs)
+              lib
+              stdenv
+              fetchurl
+              autoPatchelfHook
+              ;
+          };
+          solcPkgfsSources = {
+            solc_0_8_23 = mk-source-solc-0_8_23 (pkgs.callPackage);
+          };
+        in
+        solcPkgsBinaries // solcPkgfsSources;
     in
     flake-utils.lib.eachSystem
       [
@@ -47,20 +65,12 @@
       (
         system:
         let
-          source-solc-0_8_23 = pkgs.callPackage ./solc-from-source.nix { };
 
           pkgs = import nixpkgs { inherit system; };
-          solcPkgs = mk-solc-pkgs {
-            inherit (pkgs)
-              lib
-              stdenv
-              fetchurl
-              autoPatchelfHook
-              ;
-          };
-          default =
-            source-solc-0_8_23;
-            # if (builtins.hasAttr "solc_0_8_23" solcPkgs) then solcPkgs.solc_0_8_23 else source-solc-0_8_23;
+          solcPkgs = mk-solc-pkgs pkgs;
+
+          # if (builtins.hasAttr "solc_0_8_23" solcPkgs) then solcPkgs.solc_0_8_23 else {} source-solc-0_8_23;
+          default = solcPkgs.solc_0_8_23;
         in
         {
           # assorted solc packages
@@ -78,17 +88,7 @@
       )
     // {
       # the overlay for nixpkgs
-      overlays.default =
-        final: prev:
-        prev
-        // (mk-solc-pkgs {
-          inherit (prev)
-            lib
-            stdenv
-            fetchurl
-            autoPatchelfHook
-            ;
-        });
+      overlays.default = final: prev: prev // (mk-solc-pkgs prev);
 
       # make a package with the symlink 'solc' to the selected solc
       lib.mkDefault =
