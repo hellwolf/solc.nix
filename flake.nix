@@ -49,11 +49,12 @@
               autoPatchelfHook
               ;
           };
-          solcPkgfsSources = {
+          solcPkgsSources = {
             solc_0_8_23 = mk-source-solc-0_8_23 (pkgs.callPackage);
           };
         in
-        solcPkgsBinaries // solcPkgfsSources;
+        # use from source, but if we have binary - override
+        solcPkgsSources // solcPkgsBinaries;
     in
     flake-utils.lib.eachSystem
       [
