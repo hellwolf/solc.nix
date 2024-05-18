@@ -1,0 +1,12 @@
+on:
+  push:
+jobs:
+  publish:
+    runs-on: "ubuntu-latest"
+    permissions:
+      contents: "read"
+    steps:
+      - uses: "actions/checkout@v4"
+      - uses: "DeterminateSystems/nix-installer-action@main"
+      - name: lint
+        run: nix-shell -p nixfmt-rfc-style --run "nixfmt -c $(echo *.nix)"
