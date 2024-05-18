@@ -10,4 +10,6 @@ jobs:
       - uses: "DeterminateSystems/nix-installer-action@main"
       - uses: "DeterminateSystems/magic-nix-cache-action@v6"
       - name: lint
-        run: nix-shell -p nixfmt-rfc-style --run "nixfmt -c $(echo *.nix)"
+        run: |
+          nix-shell -p nixfmt-rfc-style --run \
+          "nixfmt -c default.nix flake.nix mk-solc-pkgs.nix mk-solc-static.nix"
