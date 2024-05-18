@@ -9,7 +9,10 @@ jobs:
       - uses: "actions/checkout@v4"
       - uses: "DeterminateSystems/nix-installer-action@main"
       - uses: "DeterminateSystems/magic-nix-cache-action@v6"
-      - name: lint
+      - name: Lint
         run: |
           nix-shell -p nixfmt-rfc-style --run \
           "nixfmt -c default.nix flake.nix mk-solc-pkgs.nix mk-solc-static.nix"
+      - name: Flake Check
+        run: |
+          nix flake check --print-build-logs --show-trace --no-build --debug --verbose --all-systems
