@@ -19,7 +19,7 @@
     }:
     let
       solc-macos-amd64-list = (builtins.fromJSON (builtins.readFile solc-macos-amd64-list-json));
-      mk-solc-pkgs = import ./mk-solc-pkgs.nix { inherit solc-macos-amd64-list; };
+      mk-solc-pkgs = pkgs: import ./mk-solc-pkgs.nix (pkgs // { inherit solc-macos-amd64-list; });
     in
     flake-utils.lib.eachSystem
       [
