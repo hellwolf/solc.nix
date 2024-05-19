@@ -10,38 +10,47 @@
     };
   };
 
-  outputs = { self, nixpkgs, flake-utils, solc-macos-amd64-list-json }:
-  let
-    solc-macos-amd64-list = (builtins.fromJSON (builtins.readFile solc-macos-amd64-list-json));
-    mk-solc-pkgs = import ./mk-solc-pkgs.nix {
-      inherit solc-macos-amd64-list;
-    };
-  in flake-utils.lib.eachSystem [
-    "x86_64-linux"
-    "x86_64-darwin"
-    "aarch64-darwin"
-  ] (system:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      flake-utils,
+      solc-macos-amd64-list-json,
+    }:
     let
-      pkgs = import nixpkgs { inherit system; };
-      solcPkgs = mk-solc-pkgs pkgs;
-    in {
-      # assorted solc packages
-      packages = solcPkgs;
+      solc-macos-amd64-list = (builtins.fromJSON (builtins.readFile solc-macos-amd64-list-json));
+      mk-solc-pkgs = pkgs: import ./mk-solc-pkgs.nix (pkgs // { inherit solc-macos-amd64-list; });
+    in
+    flake-utils.lib.eachSystem
+      [
+        "x86_64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ]
+      (
+        system:
+        let
+          pkgs = import nixpkgs { inherit system; };
+          solcPkgs = mk-solc-pkgs pkgs;
+        in
+        {
+          # assorted solc packages
+          packages = solcPkgs;
 
-      # default shell with the latest solc compiler
-      devShells.default = pkgs.mkShell {
-        buildInputs = [ solcPkgs.solc_0_8_19 ];
-      };
-      # shell with all solc compilers
-      devShells.all = pkgs.mkShell {
-        buildInputs = builtins.attrValues solcPkgs;
-      };
-  }) // {
-    # the overlay for nixpkgs
-    overlay = final: prev: mk-solc-pkgs prev;
+          # default shell with the latest solc compiler
+          devShells.default = pkgs.mkShell { buildInputs = [ solcPkgs.solc_0_8_19 ]; };
+          # shell with all solc compilers
+          devShells.all = pkgs.mkShell { buildInputs = builtins.attrValues solcPkgs; };
+        }
+      )
+    // {
+      # the overlay for nixpkgs
+      overlay = final: prev: mk-solc-pkgs prev;
 
-    # make a package with the symlink 'solc' to the selected solc
-    mkDefault = pkgs : solc-selected: pkgs.runCommand "solc-default" {}
-      "mkdir -p $out/bin && ln -s ${pkgs.lib.getExe solc-selected} $out/bin/solc";
-  };
+      # make a package with the symlink 'solc' to the selected solc
+      mkDefault =
+        pkgs: solc-selected:
+        pkgs.runCommand "solc-default" { }
+          "mkdir -p $out/bin && ln -s ${pkgs.lib.getExe solc-selected} $out/bin/solc";
+    };
 }
