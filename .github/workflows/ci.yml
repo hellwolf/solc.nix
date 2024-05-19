@@ -1,7 +1,7 @@
 on:
   push:
 jobs:
-  publish:
+  ci:
     runs-on: "ubuntu-latest"
     permissions:
       contents: "read"
@@ -10,9 +10,6 @@ jobs:
       - uses: "DeterminateSystems/nix-installer-action@main"
       - uses: "DeterminateSystems/magic-nix-cache-action@v6"
       - name: Lint
-        run: |
-          nix-shell -p nixfmt-rfc-style --run \
-          "nixfmt -c default.nix flake.nix mk-solc-pkgs.nix mk-solc-static.nix"
+        run: make lint
       - name: Flake Check
-        run: |
-          nix flake check --print-build-logs --show-trace --no-build --debug --verbose --all-systems
+        run: make flake-check
