@@ -47,8 +47,9 @@ let
       "https://github.com/alloy-rs/solc-builds/raw/master/macosx/aarch64/solc-v${version}"
     else
       throw "Unsupported version ${version} for ${system}";
-
-  solc = stdenv.mkDerivation rec {
+in
+if (builtins.hasAttr solc-flavor solc_sha256) then
+  (stdenv.mkDerivation rec {
     inherit pname version meta;
 
     src = fetchurl {
@@ -68,6 +69,6 @@ let
 
       runHook postInstall
     '';
-  };
-in
-solc
+  })
+else
+  null
