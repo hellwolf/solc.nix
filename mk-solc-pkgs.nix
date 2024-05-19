@@ -1,17 +1,19 @@
-{ solc-macos-amd64-list }:
+{
+  lib,
+  callPackage,
+  solc-macos-amd64-list,
+  ...
+}:
 
-p:
-p.lib.foldr (
-  a: b:
+lib.foldr (
+  binary: all_binaries:
   let
-    pname = "solc_" + (builtins.replaceStrings [ "." ] [ "_" ] a.version);
-  in
-  b
-  // {
-    "${pname}" = p.callPackage (import ./mk-solc-static.nix) {
-      solc_ver = a.version;
-      solc_sha256 = a.sha256;
+    pname = "solc_" + (builtins.replaceStrings [ "." ] [ "_" ] binary.version);
+    maybeSolc = callPackage (import ./mk-solc-static-pkg.nix) {
+      solc_ver = binary.version;
+      solc_sha256 = binary.sha256;
       inherit solc-macos-amd64-list;
     };
-  }
+  in
+  if maybeSolc != null then all_binaries // { "${pname}" = maybeSolc; } else all_binaries
 ) { } (import ./solc-listing.nix)
