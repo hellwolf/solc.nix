@@ -20,4 +20,4 @@ jobs:
       - name: Flake Check
         run: make flake-check
       - name: Example Flake
-        run: nix develop test
+        run: cd test && nix develop .
