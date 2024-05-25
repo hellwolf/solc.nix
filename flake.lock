@@ -44,13 +44,14 @@
     "solc-macos-amd64-list-json": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-f5kzXsfnxgad+1FxaGOlflIUVt8RPNBGS5wkqb63DVA=",
-        "type": "file",
-        "url": "https://binaries.soliditylang.org/macosx-amd64/list.json"
+        "lastModified": 1,
+        "narHash": "sha256-Prwz95BgMHcWd72VwVbcH17LsV9f24K2QMcUiWUQZzI=",
+        "path": "./solc-macosx-amd64-list.json",
+        "type": "path"
       },
       "original": {
-        "type": "file",
-        "url": "https://binaries.soliditylang.org/macosx-amd64/list.json"
+        "path": "./solc-macosx-amd64-list.json",
+        "type": "path"
       }
     },
     "systems": {
