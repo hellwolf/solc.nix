@@ -26,7 +26,7 @@ let
       x86_64-darwin = "solc-macos-amd64";
       aarch64-darwin = "solc-macos-aarch64";
     }
-      .${stdenv.hostPlatform.system} or (throw "Unsupported system: ${system} ${stdenv.hostPlatform.system}");
+      .${system} or (throw "Unsupported system: ${system}");
 
   # The official solc binaries for macOS started supporting Apple Silicon with
   # v0.8.24. For earlier versions, the binaries from svm can be used.
