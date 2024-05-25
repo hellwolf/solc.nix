@@ -21,8 +21,8 @@
     "nixpkgs": {
       "locked": {
         "lastModified": 0,
-        "narHash": "sha256-LJbHQQ5aX1LVth2ST+Kkse/DRzgxlVhTL1rxthvyhZc=",
-        "path": "/nix/store/fszphhr0kc59brk510m3a579vjbjdy2s-source",
+        "narHash": "sha256-EEqGOczj6IIDeeMbjHqMTGTKy5tVNFdKADjlfV6gXck=",
+        "path": "/nix/store/i2b8816gik9i6hwlh3nyfc9l0yaxys4x-source",
         "type": "path"
       },
       "original": {
@@ -32,11 +32,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1714809261,
-        "narHash": "sha256-hfBmnYFyz9I1mdrC3tX1A+dF9cOUcds5PIMPxrT+cRk=",
+        "lastModified": 1716062047,
+        "narHash": "sha256-OhysviwHQz4p2HZL4g7XGMLoUbWMjkMr/ogaR3VUYNA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "d32560238207b8e26d88b265207b216ee46b8450",
+        "rev": "02923630b89aa1ab36ef8e422501a6f4fd4b2016",
         "type": "github"
       },
       "original": {
@@ -60,25 +60,26 @@
       },
       "locked": {
         "lastModified": 0,
-        "narHash": "sha256-qNfdux8E1J2eTUNuOdO6ThsTTIiFAcJNE91AZDPEgwA=",
-        "path": "/nix/store/hh079iq4l3gpnx16hvbw90jfk9a7qfax-source",
+        "narHash": "sha256-kOYveAsL7elJAa7bdq3j7B+/cXcj2aaYkkpNjDbXQW0=",
+        "path": "/nix/store/v2gbsb42bfxs2ikc3fqcd361qj4ybwxs-source",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/hh079iq4l3gpnx16hvbw90jfk9a7qfax-source",
+        "path": "/nix/store/v2gbsb42bfxs2ikc3fqcd361qj4ybwxs-source",
         "type": "path"
       }
     },
     "solc-macos-amd64-list-json": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-akcOahJE/QR0jCPvo4aBf0loJt9P8zvP2E7oCBCRIho=",
-        "type": "file",
-        "url": "https://binaries.soliditylang.org/macosx-amd64/list.json"
+        "lastModified": 1,
+        "narHash": "sha256-Prwz95BgMHcWd72VwVbcH17LsV9f24K2QMcUiWUQZzI=",
+        "path": "./solc-macosx-amd64-list.json",
+        "type": "path"
       },
       "original": {
-        "type": "file",
-        "url": "https://binaries.soliditylang.org/macosx-amd64/list.json"
+        "path": "./solc-macosx-amd64-list.json",
+        "type": "path"
       }
     },
     "systems": {
