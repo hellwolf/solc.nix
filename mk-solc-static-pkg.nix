@@ -27,6 +27,7 @@ let
       x86_64-darwin = "solc-macos-amd64";
       aarch64-darwin = "solc-macos-aarch64";
     }
+      # We musnt' throw here, since nixos-rebuild seems not liking it.
       .${system} or "unsupported-system";
 
   # The official solc binaries for macOS started supporting Apple Silicon with
