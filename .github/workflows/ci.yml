@@ -2,7 +2,10 @@ on:
   push:
 jobs:
   ci:
-    runs-on: "ubuntu-latest"
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-12, macos-13, macos-14]
+    runs-on: ${{ matrix.os }}
     permissions:
       contents: "read"
     steps:
@@ -16,3 +19,5 @@ jobs:
         run: make lint
       - name: Flake Check
         run: make flake-check
+      - name: Example Flake
+        run: nix develop test
