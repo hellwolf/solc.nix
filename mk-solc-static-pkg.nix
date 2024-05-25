@@ -26,7 +26,7 @@ let
       x86_64-darwin = "solc-macos-amd64";
       aarch64-darwin = "solc-macos-aarch64";
     }
-    .${system} or (throw "Unsupported system: ${system}");
+    .${system} or null; # (throw "Unsupported system: ${system}");
 
   # Fix solc flavor for macos for newer versions.
   solc-flavor =
