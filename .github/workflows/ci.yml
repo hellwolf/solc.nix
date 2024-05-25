@@ -2,7 +2,12 @@ on:
   push:
 jobs:
   ci:
-    runs-on: "ubuntu-latest"
+    strategy:
+      matrix:
+        # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners
+        os: [ubuntu-latest, macos-12, macos-13, macos-14]
+      fail-fast: false
+    runs-on: ${{ matrix.os }}
     permissions:
       contents: "read"
     steps:
@@ -16,3 +21,5 @@ jobs:
         run: make lint
       - name: Flake Check
         run: make flake-check
+      - name: Test Default Shell
+        run: nix develop . --show-trace

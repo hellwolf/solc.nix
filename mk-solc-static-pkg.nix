@@ -1,11 +1,12 @@
 {
   lib,
-  solc_ver,
-  solc_sha256,
   stdenv,
   fetchurl,
   autoPatchelfHook,
+  solc_ver,
+  solc_sha256,
   solc-macos-amd64-list,
+  ...
 }:
 
 let
@@ -20,20 +21,14 @@ let
   };
 
   inherit (stdenv.hostPlatform) system;
-  solc-flavor-base =
+  solc-flavor =
     {
       x86_64-linux = "solc-static-linux";
       x86_64-darwin = "solc-macos-amd64";
       aarch64-darwin = "solc-macos-aarch64";
     }
-    .${system} or (throw "Unsupported system: ${system}");
-
-  # Fix solc flavor for macos for newer versions.
-  solc-flavor =
-    if solc-flavor-base == "solc-macos-aarch" && builtins.compareVersions solc_ver "0.8.24" > -1 then
-      "solc-macos"
-    else
-      solc-flavor-base;
+    # We musnt' throw here, since nixos-rebuild seems not liking it.
+    .${system} or "unsupported-system";
 
   # The official solc binaries for macOS started supporting Apple Silicon with
   # v0.8.24. For earlier versions, the binaries from svm can be used.

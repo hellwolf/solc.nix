@@ -19,8 +19,8 @@
       solc-macos-amd64-list-json,
     }:
     let
-      solc-macos-amd64-list = (builtins.fromJSON (builtins.readFile solc-macos-amd64-list-json));
-      mk-solc-pkgs = pkgs: import ./mk-solc-pkgs.nix (pkgs // { inherit solc-macos-amd64-list; });
+      solc-macos-amd64-list = builtins.fromJSON (builtins.readFile solc-macos-amd64-list-json);
+      solc-pkgs-overlay = final: prev: import ./mk-solc-pkgs.nix prev { inherit solc-macos-amd64-list; };
     in
     flake-utils.lib.eachSystem
       [
@@ -31,22 +31,19 @@
       (
         system:
         let
-          pkgs = import nixpkgs { inherit system; };
-          solcPkgs = mk-solc-pkgs pkgs;
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [ solc-pkgs-overlay ];
+          };
         in
         {
-          # assorted solc packages
-          packages = solcPkgs;
-
           # default shell with the latest solc compiler
-          devShells.default = pkgs.mkShell { buildInputs = [ solcPkgs.solc_0_8_19 ]; };
-          # shell with all solc compilers
-          devShells.all = pkgs.mkShell { buildInputs = builtins.attrValues solcPkgs; };
+          devShells.default = pkgs.mkShell { buildInputs = [ pkgs.solc_0_8_23 ]; };
         }
       )
     // {
       # the overlay for nixpkgs
-      overlay = final: prev: mk-solc-pkgs prev;
+      overlay = solc-pkgs-overlay;
 
       # make a package with the symlink 'solc' to the selected solc
       mkDefault =
