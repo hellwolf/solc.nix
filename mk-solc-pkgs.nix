@@ -1,14 +1,16 @@
-{
-  solc-macos-amd64-list,
-  ...
-}@pkgs:
+{ solc-macos-amd64-list, ... }@pkgs:
 
 builtins.foldl' (
   all_binaries: binary:
   let
     pname = "solc_" + (builtins.replaceStrings [ "." ] [ "_" ] binary.version);
     maybeSolc = (import ./mk-solc-static-pkg.nix) {
-      inherit (pkgs) lib stdenv autoPatchelfHook fetchurl;
+      inherit (pkgs)
+        lib
+        stdenv
+        autoPatchelfHook
+        fetchurl
+        ;
       inherit solc-macos-amd64-list;
       solc_ver = binary.version;
       solc_sha256 = binary.sha256;
