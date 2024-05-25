@@ -23,7 +23,6 @@ let
   inherit (stdenv.hostPlatform) system;
   solc-flavor =
     {
-      i686-linux = "solc-static-linux"; # this is weird
       x86_64-linux = "solc-static-linux";
       x86_64-darwin = "solc-macos-amd64";
       aarch64-darwin = "solc-macos-aarch64";
@@ -53,7 +52,7 @@ if (builtins.hasAttr solc-flavor solc_sha256) then
     };
     dontUnpack = true;
 
-    nativeBuildInputs = lib.optionals (!stdenv.isDarwin) [ autoPatchelfHook ];
+    #nativeBuildInputs = lib.optionals (!stdenv.isDarwin) [ autoPatchelfHook ];
 
     installPhase = ''
       runHook preInstall
