@@ -1,10 +1,10 @@
-{ solc-macos-amd64-list, ... }@pkgs:
+pkgs : { solc-macos-amd64-list }:
 
 builtins.foldl' (
   all_binaries: binary:
   let
     pname = "solc_" + (builtins.replaceStrings [ "." ] [ "_" ] binary.version);
-    maybeSolc = (import ./mk-solc-static-pkg.nix) (pkgs // {
+    maybeSolc = import ./mk-solc-static-pkg.nix (pkgs // {
       solc_ver = binary.version;
       solc_sha256 = binary.sha256;
       inherit solc-macos-amd64-list;

@@ -21,7 +21,7 @@
     let
       solc-macos-amd64-list = builtins.fromJSON (builtins.readFile solc-macos-amd64-list-json);
       solc-pkgs-overlay =
-        final: prev: import ./mk-solc-pkgs.nix (prev // { inherit solc-macos-amd64-list; });
+        final: prev: import ./mk-solc-pkgs.nix prev { inherit solc-macos-amd64-list; };
     in
     flake-utils.lib.eachSystem
       [

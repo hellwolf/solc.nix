@@ -23,6 +23,7 @@ let
   inherit (stdenv.hostPlatform) system;
   solc-flavor =
     {
+      i686-linux = "solc-static-linux"; # this is weird
       x86_64-linux = "solc-static-linux";
       x86_64-darwin = "solc-macos-amd64";
       aarch64-darwin = "solc-macos-aarch64";
