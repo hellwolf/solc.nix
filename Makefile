@@ -5,8 +5,5 @@ lint:
 flake-check:
 	nix flake check --print-build-logs --show-trace --no-build --all-systems
 
-solc-macosx-amd64-list.json:
-	wget https://binaries.soliditylang.org/macosx-amd64/list.json -O $@
-
 .PHONY: lint flake-*
 

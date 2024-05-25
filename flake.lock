@@ -44,14 +44,13 @@
     "solc-macos-amd64-list-json": {
       "flake": false,
       "locked": {
-        "lastModified": 1,
         "narHash": "sha256-Prwz95BgMHcWd72VwVbcH17LsV9f24K2QMcUiWUQZzI=",
-        "path": "./solc-macosx-amd64-list.json",
-        "type": "path"
+        "type": "file",
+        "url": "https://github.com/ethereum/solc-bin/raw/f743ca7/macosx-amd64/list.json"
       },
       "original": {
-        "path": "./solc-macosx-amd64-list.json",
-        "type": "path"
+        "type": "file",
+        "url": "https://github.com/ethereum/solc-bin/raw/f743ca7/macosx-amd64/list.json"
       }
     },
     "systems": {
