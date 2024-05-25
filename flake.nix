@@ -6,7 +6,8 @@
     flake-utils.url = "github:numtide/flake-utils";
     solc-macos-amd64-list-json = {
       # Use `make solc-macosx-amd64-list.json -B` to force an update from upstream
-      url = "path:./solc-macosx-amd64-list.json";
+      type = "path";
+      path = "./solc-macosx-amd64-list.json";
       flake = false;
     };
   };
