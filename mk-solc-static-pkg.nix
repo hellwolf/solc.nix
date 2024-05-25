@@ -1,11 +1,12 @@
 {
   lib,
-  solc_ver,
-  solc_sha256,
   stdenv,
   fetchurl,
   autoPatchelfHook,
+  solc_ver,
+  solc_sha256,
   solc-macos-amd64-list,
+  ...
 }:
 
 let

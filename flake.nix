@@ -38,14 +38,14 @@
           };
         in
         {
-          # the overlay for nixpkgs
-          overlays.default = solc-pkgs-overlay;
-
           # default shell with the latest solc compiler
           devShells.default = pkgs.mkShell { buildInputs = [ pkgs.solc_0_8_19 ]; };
         }
       )
     // {
+      # the overlay for nixpkgs
+      overlay = solc-pkgs-overlay;
+
       # make a package with the symlink 'solc' to the selected solc
       mkDefault =
         pkgs: solc-selected:
