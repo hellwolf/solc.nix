@@ -27,7 +27,7 @@ let
       x86_64-darwin = "solc-macos-amd64";
       aarch64-darwin = "solc-macos-aarch64";
     }
-      .${system} or (throw "Unsupported system: ${system}");
+      .${system} or null;# (throw "Unsupported system: ${system}");
 
   # The official solc binaries for macOS started supporting Apple Silicon with
   # v0.8.24. For earlier versions, the binaries from svm can be used.
@@ -52,7 +52,7 @@ if (builtins.hasAttr solc-flavor solc_sha256) then
     };
     dontUnpack = true;
 
-    #nativeBuildInputs = lib.optionals (!stdenv.isDarwin) [ autoPatchelfHook ];
+    nativeBuildInputs = lib.optionals (!stdenv.isDarwin) [ autoPatchelfHook ];
 
     installPhase = ''
       runHook preInstall
