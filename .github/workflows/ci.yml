@@ -22,4 +22,4 @@ jobs:
       - name: Flake Check
         run: make flake-check
       - name: Example Flake
-        run: cd test && nix develop .
+        run: cd test && nix develop . --show-trace
