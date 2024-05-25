@@ -20,20 +20,13 @@ let
   };
 
   inherit (stdenv.hostPlatform) system;
-  solc-flavor-base =
+  solc-flavor =
     {
       x86_64-linux = "solc-static-linux";
       x86_64-darwin = "solc-macos-amd64";
       aarch64-darwin = "solc-macos-aarch64";
     }
-    .${system} or null; # (throw "Unsupported system: ${system}");
-
-  # Fix solc flavor for macos for newer versions.
-  solc-flavor =
-    if solc-flavor-base == "solc-macos-aarch" && builtins.compareVersions solc_ver "0.8.24" > -1 then
-      "solc-macos"
-    else
-      solc-flavor-base;
+      .${(builtins.trace stdenv.hostPlatform system)} or (throw "Unsupported system: ${system}");
 
   # The official solc binaries for macOS started supporting Apple Silicon with
   # v0.8.24. For earlier versions, the binaries from svm can be used.
