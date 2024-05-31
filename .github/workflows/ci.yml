@@ -1,5 +1,6 @@
 on:
   push:
+    branches: [main]
   pull_request:
     types: [synchronize, opened, reopened, ready_for_review]
 jobs:
@@ -25,6 +26,6 @@ jobs:
         run: make flake-check
       - name: Test Default Shell
         run: |
-          nix develop .# --command solc --version
-          nix develop ./test# --command solc --version
-          nix develop ./test# --command solc_0_8_23 --version
+          nix develop .# --command -- bash -c "solc --version"
+          nix develop ./test# --command -- bash -c "solc --version"
+          nix develop ./test# --command -- bash -c  "solc_0_8_23 --version"
