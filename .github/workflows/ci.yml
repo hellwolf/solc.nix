@@ -24,4 +24,7 @@ jobs:
       - name: Flake Check
         run: make flake-check
       - name: Test Default Shell
-        run: nix develop . --show-trace
+        run: |
+          nix develop .# --command solc --version
+          nix develop ./test# --command solc --version
+          nix develop ./test# --command solc_0_8_23 --version
