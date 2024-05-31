@@ -29,3 +29,11 @@ jobs:
           nix develop .# --command -- bash -c "solc --version"
           nix develop ./test# --command -- bash -c "solc --version"
           nix develop ./test# --command -- bash -c  "solc_0_8_23 --version"
+  ci-check-success:
+    needs: [ci]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if all workflows succeeded
+        run: |
+          echo "All reusable workflows succeeded."
+
