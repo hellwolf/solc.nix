@@ -26,9 +26,9 @@ jobs:
         run: make flake-check
       - name: Test Default Shell
         run: |
-          nix develop .# --command -- bash -c "solc_0_8_23 --version"
+          nix develop .# --command -- bash -c "solc-0.8.23 --version"
           nix develop ./test# --command -- bash -c "solc --version"
-          nix develop ./test# --command -- bash -c  "solc_0_8_23 --version"
+          nix develop ./test# --command -- bash -c  "solc-0.8.23 --version"
   ci-check-success:
     needs: [ci]
     runs-on: ubuntu-latest
