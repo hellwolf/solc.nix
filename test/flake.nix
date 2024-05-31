@@ -1,5 +1,11 @@
 {
-  inputs.solc.url = "path:../.";
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    solc = {
+      url = "path:../.";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
 
   outputs = { self, nixpkgs, solc }: let
     pkgs = import nixpkgs {
