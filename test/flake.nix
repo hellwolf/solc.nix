@@ -31,7 +31,7 @@
           };
         in
         {
-          devShell.default =
+          devShells.default =
             with pkgs;
             mkShell {
               buildInputs = [
