@@ -19,7 +19,7 @@
     flake-utils.lib.eachSystem
       [
         "x86_64-linux"
-        "x`86_64-darwin"
+        "x86_64-darwin"
         "aarch64-darwin"
       ]
       (
