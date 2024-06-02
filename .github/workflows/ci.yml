@@ -27,8 +27,8 @@ jobs:
       - name: Test Default Shell
         run: |
           nix develop .# --command -- bash -c "solc-0.8.23 --version"
-          nix develop ./test# --command -- bash -c "solc --version"
-          nix develop ./test# --command -- bash -c  "solc-0.8.23 --version"
+          nix develop ./test/.# --override-flake solc .. --command -- bash -c "solc --version"
+          nix develop ./test/.# --override-flake solc .. --command -- bash -c  "solc-0.8.23 --version"
   ci-check-success:
     needs: [ci]
     runs-on: ubuntu-latest
@@ -36,4 +36,3 @@ jobs:
       - name: Check if all workflows succeeded
         run: |
           echo "All reusable workflows succeeded."
-
