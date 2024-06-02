@@ -1,5 +1,6 @@
 on:
   push:
+    branches: [main]
   pull_request:
     types: [synchronize, opened, reopened, ready_for_review]
 jobs:
@@ -24,4 +25,16 @@ jobs:
       - name: Flake Check
         run: make flake-check
       - name: Test Default Shell
-        run: nix develop . --show-trace
+        run: |
+          set -x
+          nix develop .# --command -- bash -c "solc-0.8.23 --version"
+          # overriding flake input is needed as a workaround to local sub flake with overlapping paths.
+          nix develop ./test/.# --override-input solc $PWD --command -- bash -c "solc --version"
+          nix develop ./test/.# --override-input solc $PWD --command -- bash -c  "solc-0.8.23 --version"
+  ci-check-success:
+    needs: [ci]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if all workflows succeeded
+        run: |
+          echo "All reusable workflows succeeded."

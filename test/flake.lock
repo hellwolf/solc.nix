@@ -20,23 +20,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 0,
-        "narHash": "sha256-EEqGOczj6IIDeeMbjHqMTGTKy5tVNFdKADjlfV6gXck=",
-        "path": "/nix/store/i2b8816gik9i6hwlh3nyfc9l0yaxys4x-source",
-        "type": "path"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "type": "indirect"
-      }
-    },
-    "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1716062047,
-        "narHash": "sha256-OhysviwHQz4p2HZL4g7XGMLoUbWMjkMr/ogaR3VUYNA=",
+        "lastModified": 1717112898,
+        "narHash": "sha256-7R2ZvOnvd9h8fDd65p0JnB7wXfUvreox3xFdYWd1BnY=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "02923630b89aa1ab36ef8e422501a6f4fd4b2016",
+        "rev": "6132b0f6e344ce2fe34fc051b72fb46e34f668e0",
         "type": "github"
       },
       "original": {
@@ -48,19 +36,24 @@
     },
     "root": {
       "inputs": {
+        "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs",
         "solc": "solc"
       }
     },
     "solc": {
       "inputs": {
-        "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs_2",
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
         "solc-macos-amd64-list-json": "solc-macos-amd64-list-json"
       },
       "locked": {
         "lastModified": 0,
-        "narHash": "sha256-+dMSzTnb+YzsrLmyDa891HHMhEZq8fT5cCkdJXFGJV0=",
+        "narHash": "sha256-OEV5w35uW7DEMdKAl9PteeKTQInS6mT6A+SUOwi4Dls=",
         "path": "../.",
         "type": "path"
       },
