@@ -26,6 +26,7 @@ jobs:
         run: make flake-check
       - name: Test Default Shell
         run: |
+          set -x
           nix develop .# --command -- bash -c "solc-0.8.23 --version"
           # overriding flake input is needed as a workaround to local sub flake with overlapping paths.
           nix develop ./test/.# --override-input solc $PWD --command -- bash -c "solc --version"
