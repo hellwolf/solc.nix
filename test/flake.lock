@@ -36,13 +36,16 @@
     },
     "root": {
       "inputs": {
+        "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs",
         "solc": "solc"
       }
     },
     "solc": {
       "inputs": {
-        "flake-utils": "flake-utils",
+        "flake-utils": [
+          "flake-utils"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -50,7 +53,7 @@
       },
       "locked": {
         "lastModified": 0,
-        "narHash": "sha256-4qcBTOUyCAw8UJU0M7bJpQOTcpdT9DFSOpa4H0h+Erk=",
+        "narHash": "sha256-OEV5w35uW7DEMdKAl9PteeKTQInS6mT6A+SUOwi4Dls=",
         "path": "../.",
         "type": "path"
       },
