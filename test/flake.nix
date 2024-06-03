@@ -35,21 +35,21 @@
             with pkgs;
             mkShell {
               buildInputs =
-                [ solc_0_8_23 ]
+                [ solc_0_8_24 ]
                 ++ (
                   if system == "x86_64-linux" then
                     [
                       solc_0_4_26
                       solc_0_7_6
-                      (solc.mkDefault pkgs solc_0_8_25)
+                      (solc.mkDefault pkgs solc_0_8_26)
                     ]
                   else if system == "x86_64-darwin" then
                     [
                       solc_0_7_6
-                      (solc.mkDefault pkgs solc_0_8_25)
+                      (solc.mkDefault pkgs solc_0_8_26)
                     ]
                   else
-                    [ (solc.mkDefault pkgs solc_0_8_23) ]
+                    [ (solc.mkDefault pkgs solc_0_8_24) ]
                 );
             };
         }
