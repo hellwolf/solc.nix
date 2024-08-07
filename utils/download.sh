@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#! /usr/bin/env nix-shell
+#! nix-shell -i bash -p semver-tool
 
 macos_versions=$(mktemp)
 curl https://binaries.soliditylang.org/macosx-amd64/list.json >"$macos_versions"
@@ -37,9 +38,17 @@ download_one_version() {
         "$T"/bin/macos-amd64/solc-"$v"
 
     mkdir -p "$T/bin/macos-aarch64"
-    run_wget \
-        https://github.com/alloy-rs/solc-builds/raw/master/macosx/aarch64/solc-v"$v" \
-        "$T"/bin/macos-aarch64/solc-"$v"
+    if [ "$(semver compare $v 0.8.23)" == 1 ]; then
+        # starting from 0.8.24, official solidity distribution started to provide universal builds
+        # references:
+        # - https://github.com/ethereum/solidity/issues/14813
+        # - https://github.com/alloy-rs/solc-builds/issues/13
+        ln -s ../macos-amd64/solc-"$v" "$T"/bin/macos-aarch64/solc-"$v"
+    else
+        run_wget \
+            https://github.com/alloy-rs/solc-builds/raw/master/macosx/aarch64/solc-v"$v" \
+            "$T"/bin/macos-aarch64/solc-"$v"
+    fi
 }
 
 download_all_versions() {
