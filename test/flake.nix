@@ -42,11 +42,18 @@
                 ++ (
                   if system == "x86_64-linux" then
                     [
-                      solc_0_4_26
+                      solc_0_4_11
                       solc_0_7_6
                     ]
+                  else if system == "x86_64-darwin" then
+                    [
+                      solc_0_4_11
+                      solc_0_7_6
+                    ]
+                  else if system == "aarch64-darwin" then
+                    [ solc_0_8_5 ]
                   else
-                    [ solc_0_7_6 ]
+                    throw "unknown system"
                 );
             };
         }
