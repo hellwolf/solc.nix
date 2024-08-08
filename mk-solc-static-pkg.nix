@@ -33,13 +33,20 @@ let
   # The official solc binaries for macOS started supporting Apple Silicon with
   # v0.8.24. For earlier versions, the binaries from svm can be used.
   # See https://github.com/alloy-rs/solc-builds
+  macosUniversalBuildUrl = "https://binaries.soliditylang.org/macosx-amd64/${
+    solc-macos-amd64-list.releases.${version}
+  }";
+
   url =
     if solc-flavor == "solc-static-linux" then
       "https://github.com/ethereum/solidity/releases/download/v${version}/solc-static-linux"
     else if solc-flavor == "solc-macos-amd64" then
-      "https://binaries.soliditylang.org/macosx-amd64/${solc-macos-amd64-list.releases.${version}}"
+      macosUniversalBuildUrl
     else if solc-flavor == "solc-macos-aarch64" && builtins.compareVersions solc_ver "0.8.5" > -1 then
-      "https://github.com/alloy-rs/solc-builds/raw/master/macosx/aarch64/solc-v${version}"
+      if builtins.compareVersions solc_ver "0.8.24" == -1 then
+        "https://github.com/alloy-rs/solc-builds/raw/master/macosx/aarch64/solc-v${version}"
+      else
+        macosUniversalBuildUrl
     else
       throw "Unsupported version ${version} for ${system}";
 in
