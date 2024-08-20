@@ -64,6 +64,7 @@ Version: 0.8.19+commit.7dd6d404.Linux.g++
 You can also use `nix shell` directly without having to write a nix flake for a project.
 
 ```
+# Solc packages are listed as "solc_{version}" directly,
 nix shell github:hellwolf/solc.nix#solc_0_4_26 github:hellwolf/solc.nix#solc_0_8_19
 ```
 
