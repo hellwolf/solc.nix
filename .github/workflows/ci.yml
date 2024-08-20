@@ -33,6 +33,7 @@ jobs:
 
           # test `nix shell`
           nix shell .#solc-0.8.19
+          nix shell .#solcPackages.solc-0.8.26
 
           # test solc.nix as input to other flakes
           # Note: overriding flake input is needed as a workaround to local sub flake with overlapping paths.
