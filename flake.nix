@@ -41,9 +41,8 @@
           devShells.default = pkgs.mkShell { buildInputs = [ pkgs.solc_0_8_26 ]; };
 
           # export all solc packages
-          packages = {
-            solcPackages = pkgs.solcPackages;
-          } // pkgs.solcPackages;
+          packages = pkgs.solcPackages;
+          solcPackages = pkgs.solcPackages;
         }
       )
     // {
