@@ -39,6 +39,9 @@
         {
           # default shell with the latest solc compiler
           devShells.default = pkgs.mkShell { buildInputs = [ pkgs.solc_0_8_26 ]; };
+
+          # export all solc packages
+          packages = pkgs;
         }
       )
     // {
