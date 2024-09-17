@@ -29,7 +29,7 @@ jobs:
           set -x
 
           # test `nix develop`
-          nix develop .# --command -- bash -c "solc-0.8.26 --version"
+          nix develop .# --command -- bash -c "solc-0.8.27 --version"
 
           # test `nix shell`
           nix shell .#solc_0_8_19
@@ -37,7 +37,7 @@ jobs:
           # test solc.nix as input to other flakes
           # Note: overriding flake input is needed as a workaround to local sub flake with overlapping paths.
           nix develop ./test/.# --override-input solc $PWD --command -- bash -c "solc --version"
-          nix develop ./test/.# --override-input solc $PWD --command -- bash -c "solc-0.8.26 --version"
+          nix develop ./test/.# --override-input solc $PWD --command -- bash -c "solc-0.8.27 --version"
   ci-check-success:
     needs: [ci]
     runs-on: ubuntu-latest
