@@ -12,7 +12,7 @@ list_all_versions() {
     for i in $(seq  0 17); do echo 0.5."$i"; done
     for i in $(seq  0 12); do echo 0.6."$i"; done
     for i in $(seq  0  6); do echo 0.7."$i"; done
-    for i in $(seq  0 27); do echo 0.8."$i"; done
+    for i in $(seq  0 28); do echo 0.8."$i"; done
 }
 
 run_wget() {
