@@ -28,7 +28,7 @@
   sha256 = {
     solc-static-linux = "sha256-+wOimlF0UrnxK89FnvN9ClQ3Zbs7vJEecKh9ajfDDV8=";
     solc-macos-amd64 = "sha256-zC1ExwaQXMw4L0hGJd/2HXQeDCQjLSJvE5poNfxkTz8=";
-    solc-macos-aarch64 = "sha256-HLG/xM32hz6/NtxlMXqKBhQJa5wrzKW7H3DVfTGcUKY=";
+    solc-macos-aarch64 = "sha256-zC1ExwaQXMw4L0hGJd/2HXQeDCQjLSJvE5poNfxkTz8=";
   };
 }
 {
