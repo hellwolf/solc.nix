@@ -9,7 +9,8 @@ print_hash() {
     t="$1"
     f="$2"
     if [[ -f "$f" ]]; then
-        echo "$t = \"$(nix hash file "$f")\";"
+        rp=$(realpath "$f")
+        echo "$t = \"$(nix hash file "$rp")\";"
     else
         echo "# $t not available for this version";
     fi
