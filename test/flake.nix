@@ -36,8 +36,8 @@
             mkShell {
               buildInputs =
                 [
-                  solc_0_8_27
-                  (solc.mkDefault pkgs solc_0_8_27)
+                  solc_0_8_28
+                  (solc.mkDefault pkgs solc_0_8_28)
                 ]
                 ++ (
                   if system == "x86_64-linux" then

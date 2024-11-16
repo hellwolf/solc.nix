@@ -1,5 +1,5 @@
 #! /usr/bin/env nix-shell
-#! nix-shell -i bash -p semver-tool
+#! nix-shell -i bash -p semver-tool wget jq
 
 macos_versions=$(mktemp)
 curl https://binaries.soliditylang.org/macosx-amd64/list.json >"$macos_versions"
@@ -10,9 +10,9 @@ T=$(dirname "$0")/..
 list_all_versions() {
     for i in $(seq 11 26); do echo 0.4."$i"; done
     for i in $(seq  0 17); do echo 0.5."$i"; done
-    for i in $(seq  0  9); do echo 0.6."$i"; done
+    for i in $(seq  0 12); do echo 0.6."$i"; done
     for i in $(seq  0  6); do echo 0.7."$i"; done
-    for i in $(seq  0 27); do echo 0.8."$i"; done
+    for i in $(seq  0 28); do echo 0.8."$i"; done
 }
 
 run_wget() {
