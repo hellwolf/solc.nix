@@ -5,8 +5,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     solc-macos-amd64-list-json = {
-      # Go to https://github.com/ethereum/solc-bin/blob/gh-pages/macosx-amd64/list.json to obtain a revision
-      url = "file+https://github.com/ethereum/solc-bin/raw/26fc3fd/macosx-amd64/list.json";
+      # Go to https://github.com/argotorg/solc-bin/blob/gh-pages/macosx-amd64/list.json to obtain a revision
+      url = "file+https://github.com/argotorg/solc-bin/raw/26fc3fd/macosx-amd64/list.json";
       flake = false;
     };
   };

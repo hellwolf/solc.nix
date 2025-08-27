@@ -14,7 +14,7 @@ let
   version = solc_ver;
   meta = with lib; {
     description = "Static binary of compiler for Ethereum smart contract language Solidity";
-    homepage = "https://github.com/ethereum/solidity";
+    homepage = "https://github.com/argotorg/solidity";
     license = licenses.gpl3;
     maintainers = with maintainers; [ hellwolf ];
     mainProgram = "solc-${solc_ver}";
@@ -39,7 +39,7 @@ let
 
   url =
     if solc-flavor == "solc-static-linux" then
-      "https://github.com/ethereum/solidity/releases/download/v${version}/solc-static-linux"
+      "https://github.com/argotorg/solidity/releases/download/v${version}/solc-static-linux"
     else if solc-flavor == "solc-macos-amd64" then
       macosUniversalBuildUrl
     else if solc-flavor == "solc-macos-aarch64" && builtins.compareVersions solc_ver "0.8.5" > -1 then
