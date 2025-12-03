@@ -6,7 +6,7 @@
     flake-utils.url = "github:numtide/flake-utils";
     solc-macos-amd64-list-json = {
       # Go to https://github.com/argotorg/solc-bin/blob/gh-pages/macosx-amd64/list.json to obtain a revision
-      url = "file+https://github.com/argotorg/solc-bin/raw/26fc3fd/macosx-amd64/list.json";
+      url = "file+https://github.com/argotorg/solc-bin/raw/0c6f116/macosx-amd64/list.json";
       flake = false;
     };
   };
@@ -38,7 +38,7 @@
         in
         {
           # default shell with the latest solc compiler
-          devShells.default = pkgs.mkShell { buildInputs = [ pkgs.solc_0_8_28 ]; };
+          devShells.default = pkgs.mkShell { buildInputs = [ pkgs.solc_0_8_31 ]; };
 
           # export all solc packages
           packages = pkgs.solcPackages;
