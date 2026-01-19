@@ -8,7 +8,7 @@ jobs:
     strategy:
       matrix:
         # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners
-        os: [ubuntu-latest, macos-14, macos-15, macos-15-intel]
+        os: [ubuntu-latest, ubuntu-24.04-arm, macos-14, macos-15, macos-15-intel]
       fail-fast: false
     runs-on: ${{ matrix.os }}
     permissions:
@@ -31,7 +31,7 @@ jobs:
           nix develop .# --command -- bash -c "solc-0.8.33 --version"
 
           # test `nix shell`
-          nix shell .#solc_0_8_19
+          nix shell .#solc_0_8_33
 
           # test solc.nix as input to other flakes
           # Note: overriding flake input is needed as a workaround to local sub flake with overlapping paths.

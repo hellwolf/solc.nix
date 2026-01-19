@@ -24,6 +24,7 @@ let
   solc-flavor =
     {
       x86_64-linux = "solc-static-linux";
+      aarch64-linux = "solc-static-linux-arm";
       x86_64-darwin = "solc-macos-amd64";
       aarch64-darwin = "solc-macos-aarch64";
     }
@@ -40,6 +41,10 @@ let
   url =
     if solc-flavor == "solc-static-linux" then
       "https://github.com/argotorg/solidity/releases/download/v${version}/solc-static-linux"
+    else if
+      solc-flavor == "solc-static-linux-arm" && builtins.compareVersions solc_ver "0.8.31" > -1
+    then
+      "https://github.com/argotorg/solidity/releases/download/v${version}/solc-static-linux-arm"
     else if solc-flavor == "solc-macos-amd64" then
       macosUniversalBuildUrl
     else if solc-flavor == "solc-macos-aarch64" && builtins.compareVersions solc_ver "0.8.5" > -1 then

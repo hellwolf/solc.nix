@@ -32,6 +32,14 @@ download_one_version() {
         https://github.com/argotorg/solidity/releases/download/v"$v"/solc-static-linux \
         "$T"/bin/static-linux/solc-"$v"
 
+    if [ "$(semver compare $v 0.8.30)" == 1 ]; then
+        # starting from 0.8.31, solidity distribution started to provide linux arm builds
+        mkdir -p "$T/bin/static-linux-arm"
+        run_wget \
+            https://github.com/argotorg/solidity/releases/download/v"$v"/solc-static-linux-arm \
+            "$T"/bin/static-linux-arm/solc-"$v"
+    fi
+
     mkdir -p "$T/bin/macos-amd64"
     run_wget \
         https://binaries.soliditylang.org/macosx-amd64/$(jq -r ".releases.\"$1\"" "$macos_versions") \
