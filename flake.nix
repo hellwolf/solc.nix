@@ -6,7 +6,7 @@
     flake-utils.url = "github:numtide/flake-utils";
     solc-macos-amd64-list-json = {
       # Go to https://github.com/argotorg/solc-bin/blob/gh-pages/macosx-amd64/list.json to obtain a revision
-      url = "file+https://github.com/argotorg/solc-bin/raw/83cb756/macosx-amd64/list.json";
+      url = "file+https://github.com/argotorg/solc-bin/raw/902dfaf/macosx-amd64/list.json";
       flake = false;
     };
   };
