@@ -8,7 +8,9 @@ jobs:
     strategy:
       matrix:
         # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners
-        os: [ubuntu-latest, ubuntu-24.04-arm, macos-14, macos-15, macos-15-intel]
+        os: [ ubuntu-latest, ubuntu-24.04-arm, ubuntu-26.04
+            , macos-latest, macos-14, macos-15, macos-26
+            ]
       fail-fast: false
     runs-on: ${{ matrix.os }}
     permissions:

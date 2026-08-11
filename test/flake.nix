@@ -20,7 +20,6 @@
       [
         "x86_64-linux"
         "aarch64-linux"
-        "x86_64-darwin"
         "aarch64-darwin"
       ]
       (
@@ -49,11 +48,6 @@
                     ]
                   else if system == "aarch64-linux" then
                     [ solc_0_8_31 ]
-                  else if system == "x86_64-darwin" then
-                    [
-                      solc_0_4_11
-                      solc_0_7_6
-                    ]
                   else if system == "aarch64-darwin" then
                     [ solc_0_8_5 ]
                   else
