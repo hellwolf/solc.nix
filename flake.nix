@@ -47,7 +47,7 @@
       )
     // {
       # the overlay for nixpkgs
-      overlays.default = solc-pkgs-overlay;
+      overlay = solc-pkgs-overlay;
 
       # make a package with the symlink 'solc' to the selected solc
       mkDefault =
