@@ -25,7 +25,6 @@ let
     {
       x86_64-linux = "solc-static-linux";
       aarch64-linux = "solc-static-linux-arm";
-      x86_64-darwin = "solc-macos-amd64";
       aarch64-darwin = "solc-macos-aarch64";
     }
     # We musnt' throw here, since nixos-rebuild seems not liking it.

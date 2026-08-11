@@ -26,7 +26,6 @@
       [
         "x86_64-linux"
         "aarch64-linux"
-        "x86_64-darwin"
         "aarch64-darwin"
       ]
       (
@@ -48,7 +47,7 @@
       )
     // {
       # the overlay for nixpkgs
-      overlay = solc-pkgs-overlay;
+      overlays.default = solc-pkgs-overlay;
 
       # make a package with the symlink 'solc' to the selected solc
       mkDefault =
